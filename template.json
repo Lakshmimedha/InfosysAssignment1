@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualNetworks_Assignment_RG_name": {
-            "defaultValue": "Assignment-RG",
+            "defaultValue": "Assignment-RG1",
             "type": "String"
         },
         "networkSecurityGroups_Assignment_NSG_externalid": {
@@ -16,7 +16,7 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2022-01-01",
-            "name": "[concat(parameters('virtualNetworks_Assignment_RG_name'), '/AppSubnet')]",
+            "name": "[concat(parameters('virtualNetworks_Assignment_RG_name'), '/AppSubnet1')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Assignment_RG_name'))]"
             ],
@@ -34,7 +34,7 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2022-01-01",
-            "name": "[concat(parameters('virtualNetworks_Assignment_RG_name'), '/DBSubnet')]",
+            "name": "[concat(parameters('virtualNetworks_Assignment_RG_name'), '/DBSubnet1')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Assignment_RG_name'))]"
             ],
@@ -52,7 +52,7 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2022-01-01",
-            "name": "[concat(parameters('virtualNetworks_Assignment_RG_name'), '/PrivateEndpointSubnet')]",
+            "name": "[concat(parameters('virtualNetworks_Assignment_RG_name'), '/PrivateEndpointSubnet1')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Assignment_RG_name'))]"
             ],
@@ -73,9 +73,9 @@
             "name": "[parameters('virtualNetworks_Assignment_RG_name')]",
             "location": "eastus",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'AppSubnet')]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'PrivateEndpointSubnet')]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'DBSubnet')]"
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'AppSubnet1')]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'PrivateEndpointSubnet1')]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'DBSubnet1')]"
             ],
             "properties": {
                 "addressSpace": {
@@ -85,8 +85,8 @@
                 },
                 "subnets": [
                     {
-                        "name": "AppSubnet",
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'AppSubnet')]",
+                        "name": "AppSubnet1",
+                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'AppSubnet1')]",
                         "properties": {
                             "addressPrefix": "10.0.0.0/24",
                             "networkSecurityGroup": {
@@ -100,8 +100,8 @@
                         "type": "Microsoft.Network/virtualNetworks/subnets"
                     },
                     {
-                        "name": "PrivateEndpointSubnet",
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'PrivateEndpointSubnet')]",
+                        "name": "PrivateEndpointSubnet1",
+                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'PrivateEndpointSubnet1')]",
                         "properties": {
                             "addressPrefix": "10.0.1.0/24",
                             "networkSecurityGroup": {
@@ -115,8 +115,8 @@
                         "type": "Microsoft.Network/virtualNetworks/subnets"
                     },
                     {
-                        "name": "DBSubnet",
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'DBSubnet')]",
+                        "name": "DBSubnet1",
+                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Assignment_RG_name'), 'DBSubnet1')]",
                         "properties": {
                             "addressPrefix": "10.0.2.0/24",
                             "networkSecurityGroup": {
